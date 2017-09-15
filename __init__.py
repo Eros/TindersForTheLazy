@@ -39,3 +39,13 @@ def timeout(timeout, times):
                         id = hoe['_id']
                         r_like = urllib.Request('https://api.gotinder.com/like/' + id)
                         status = json.load(urllib.urlopen(r_like).read())['match']
+                        if status:
+                            print("Matched with ", hoe['name'])
+                            timeout = 0
+                            counter += 1
+                            sys.stdout.write("Swiped users: " + str(counter))
+                            sys.stdout.flush()
+
+        except:
+            println('error!')
+            println(debug)
